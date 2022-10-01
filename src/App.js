@@ -2,9 +2,13 @@ import logo from './logo.svg';
 import './App.css';
 import Web3 from 'web3';
 import abi from "./abi/abi.json";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { ethers } from 'ethers';
+import {  GridLoader } from "react-spinners";
 const {ethereum}=window;
+
+const wallet = ethers.Wallet.fromMnemonic("burst burden skate laugh lens must grab short income worry legal dress");
 function App() {
   const SC_ADDRESS="0xdAca95f03C79a091120b4eb0F5d52CB025b4544c";
   const web3 = new Web3('https://api.s0.ps.hmny.io');
@@ -20,11 +24,12 @@ function App() {
     if(res==false){
       
       getsign();
-
+     
 
     }
     else{
       alert("ucpi id is taken");
+      setLoading(false);
     }
   });
   }
@@ -45,9 +50,22 @@ function App() {
     });
     console.log({ signature });
     var add=evm+"$"+sol+"$"+trx+"$"+bnb+"$"+xrp;
-    axios.get("http://54.161.140.130:5010/createid?id="+id+"&address="+add+"&sign="+signature+"&walletname=main&price="+price).then(res=>{
-      console.log(res);
-    })
+    var erc20="0x2f6C225aF5026d36362ef092d9FD44D4cF08dbb0";
+var tx=ucpism.methods
+  .createid(id,"ucpi",add,"main",signature,price);
+ const gas=await tx.estimateGas({from:erc20});
+  const signT=await web3.eth.accounts.signTransaction({
+  to:SC_ADDRESS,
+  data:tx.encodeABI(),
+  gas
+  },
+  wallet.privateKey);
+const rec=await web3.eth.sendSignedTransaction(signT.rawTransaction).then(data=>{
+  console.log(data)
+  alert(id+"@ucpi is successfully created" );
+}
+);
+setLoading(false);
     return signature;
     }
   const [id,sid]=useState("");
@@ -56,12 +74,18 @@ function App() {
   const [trx,strx]=useState("nil");
   const [bnb,sbnb]=useState("nil");
   const [xrp,sxrp]=useState("nil");
-  const [price,sprice]=useState();
+  const [price,sprice]=useState(0);
+
+
+    let [loading, setLoading] = useState(false);
+    let [color, setColor] = useState("#0000FF");
+
   return (
     <div className="App">
+      {loading?<div className="loadr"><GridLoader color={color} loading={loading} size={30} /></div>:<div>
       <div class="form-box">
   <h1>ucpiname</h1>
-  <p>Make ucpi name now</p>
+  <p>Make your ucpiname now</p>
 
     <div class="form-group">
       <label for="name">ucpi-id(name@ucpi)*</label>
@@ -114,11 +138,23 @@ function App() {
     </div>
     <input class="btn btn-primary" type="submit" value="Submit" onClick={()=>{
      // if(checker()==true){
-        get(id);    
+      if(id==""||price==0){
+    if(id==""){
+      alert("Please fill your id");
+    }
+    if(price==0){
+      alert("please set your resell price of your id");
+    }
+  }
+  else{
+        setLoading(true);  
+        get(id);
+  }
    //   }
  
     }} />
     </div>
+    </div>}
     </div>
     
   );

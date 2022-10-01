@@ -47,7 +47,9 @@ body {
   background: #ffffff;
   border: 10px solid #f2f2f2;
 }
-
+.loadr{
+  margin-top: 30%;
+}
 h1, p {
   text-align: center;
 }
