@@ -6,7 +6,7 @@ import { useState } from 'react';
 import axios from 'axios';
 const {ethereum}=window;
 function App() {
-  const SC_ADDRESS="0x5e54a7Fe92cB27229e2C534bf009F5Ee4A98BCa0";
+  const SC_ADDRESS="0xdAca95f03C79a091120b4eb0F5d52CB025b4544c";
   const web3 = new Web3('https://api.s0.ps.hmny.io');
   const ucpism = new web3.eth.Contract(abi, SC_ADDRESS);
   async function get(_id){
@@ -45,7 +45,7 @@ function App() {
     });
     console.log({ signature });
     var add=evm+"$"+sol+"$"+trx+"$"+bnb+"$"+xrp;
-    axios.get("http://localhost:4200/createid?id="+id+"&address="+add+"&sign="+signature+"&walletname=main&price="+price).then(res=>{
+    axios.get("http://54.161.140.130:5010/createid?id="+id+"&address="+add+"&sign="+signature+"&walletname=main&price="+price).then(res=>{
       console.log(res);
     })
     return signature;
