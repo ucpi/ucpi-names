@@ -36,13 +36,28 @@ function Home() {
       }
     });
   }
+
+  const [id, sid] = useState("");
+  const [evm, sevm] = useState("");
+  const [sol, ssol] = useState("");
+  const [trx, strx] = useState("");
+  const [bnb, sbnb] = useState("");
+  const [xrp, sxrp] = useState("");
+  const [price, sprice] = useState(0);
+
+  let [loading, setLoading] = useState(false);
+  let [color, setColor] = useState("#0000FF");
   async function getsign() {
     const accounts = await window.ethereum.request({
       method: "eth_requestAccounts",
     });
     const account = accounts[0];
-    sevm(account);
-    console.log(account);
+    // var temp=account;
+    // sevm(accounts[0]);
+    // console.log(accounts[0]);
+    // console.log(evm);
+    localStorage.set("eth",account);
+
     const message = "Make my ucpi id";
     // hash message
     const hashedMessage = Web3.utils.sha3(message);
@@ -76,17 +91,6 @@ function Home() {
     setLoading(false);
     return signature;
   }
-  const [id, sid] = useState("");
-  const [evm, sevm] = useState("");
-  const [sol, ssol] = useState("");
-  const [trx, strx] = useState("");
-  const [bnb, sbnb] = useState("");
-  const [xrp, sxrp] = useState("");
-  const [price, sprice] = useState(0);
-
-  let [loading, setLoading] = useState(false);
-  let [color, setColor] = useState("#0000FF");
-
   return (
     <div>
       <div className="top-line"></div>
@@ -200,10 +204,15 @@ function Home() {
                     localStorage.set("trx", trx);
                     localStorage.set("bnb", bnb);
                     localStorage.set("xrp", xrp);
+                   // localStorage.set("eth",evm);
+                    console.log(evm);
+                    getsign();
+                    // navigation("/greeting");
+
                     setLoading(true);
                     // get(id);
                     get(id).then((e) => {
-                      // navigation("/greeting");
+                     navigation("/greeting");
                       console.log(e);
                     });
                   }
