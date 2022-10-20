@@ -38,13 +38,12 @@ const Greeting = () => {
           <div className="greet-body">
             <p>It is attatched to,</p>
             <ul>
-            <li>{eth} for evm chains</li>
-              {sol!="undefine"?<li>{sol} for Solana</li>:<div></div>}
-              {trx!="undefine"?<li>{trx} for Tron</li>:<div></div>}
-              {bnb!="undefine"?<li>{bnb} for bnb</li>:<div></div>}
-              {xrp!="undefine"?<li>{xrp} for XRP</li>:<div></div>}
-{/*         
-              {<li>{xrp} for XRP</li>} */}
+            <li><span>"{eth}"</span> for evm chains</li>
+              {sol!="undefine"?<li><span>"{sol}"</span> for Solana</li>:<div></div>}
+              {trx!="undefine"?<li><span>"{trx}"</span> for Tron</li>:<div></div>}
+              {bnb!="undefine"?<li><span>"{bnb}"</span> for bnb</li>:<div></div>}
+              {xrp!="undefine"?<li><span>"{xrp}"</span> for XRP</li>:<div></div>}        
+              {/* {<li>{xrp} for XRP</li>} */}
             </ul>
           </div>
         </div>
