@@ -1,0 +1,48 @@
+.footer {
+  position: absolute;
+  bottom: 50px;
+  left: 200px;
+}
+
+.footer p {
+  font-size: 20px;
+  color: #282c34;
+  margin-bottom: 30px;
+}
+
+.footer .btn-container a {
+  padding: 15px 50px;
+  color: #fff;
+  background-color: #282c34;
+  margin-right: 20px;
+  text-decoration: none;
+}
+
+.footer .icon {
+  padding: 10px;
+}
+
+@media (max-width: 1320px) {
+  .footer {
+    left: 100px;
+  }
+}
+
+@media (max-width: 870px) {
+  .footer {
+    position: static;
+    width: 100%;
+    padding: 20px 10px;
+    border-top: 1px dashed #7e8299;
+  }
+  .footer p {
+    color: #282c34;
+  }
+  .footer .btn-container a {
+    padding: 10px;
+    color: #fff;
+    background-color: #282c34;
+    margin: 0 10px;
+    text-decoration: none;
+  }
+}
