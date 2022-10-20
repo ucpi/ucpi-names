@@ -36,46 +36,7 @@ function Home() {
       }
     });
   }
-  async function getsign() {
-    const accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    const account = accounts[0];
-    sevm(account);
-    console.log(account);
-    const message = "Make my ucpi id";
-    // hash message
-    const hashedMessage = Web3.utils.sha3(message);
-    console.log({ hashedMessage });
 
-    // sign hashed message
-    const signature = await ethereum.request({
-      method: "personal_sign",
-      params: [hashedMessage, accounts[0]],
-    });
-    console.log({ signature });
-    var add = evm + "$" + sol + "$" + trx + "$" + bnb + "$" + xrp;
-    var erc20 = "0x2f6C225aF5026d36362ef092d9FD44D4cF08dbb0";
-    var tx = ucpism.methods.createid(id, "ucpi", add, "main", signature, price);
-    const gas = await tx.estimateGas({ from: erc20 });
-    const signT = await web3.eth.accounts.signTransaction(
-      {
-        to: SC_ADDRESS,
-        data: tx.encodeABI(),
-        gas,
-      },
-      wallet.privateKey
-    );
-    const rec = await web3.eth
-      .sendSignedTransaction(signT.rawTransaction)
-      .then((data) => {
-        console.log(data);
-        // alert(id + "@ucpi is successfully created");
-        navigation("/greeting");
-      });
-    setLoading(false);
-    return signature;
-  }
   const [id, sid] = useState("");
   const [evm, sevm] = useState("");
   const [sol, ssol] = useState("");
@@ -86,7 +47,49 @@ function Home() {
 
   let [loading, setLoading] = useState(false);
   let [color, setColor] = useState("#0000FF");
+  async function getsign() {
+    const accounts = await window.ethereum.request({
+      method: "eth_requestAccounts",
+    });
+    const account = accounts[0];
+    var temp=account;
+    sevm(temp);
+    console.log(accounts);
+    console.log(evm);
+    // console.log(evm);
+    // const message = "Make my ucpi id";
+    // // hash message
+    // const hashedMessage = Web3.utils.sha3(message);
+    // console.log({ hashedMessage });
 
+    // // sign hashed message
+    // const signature = await ethereum.request({
+    //   method: "personal_sign",
+    //   params: [hashedMessage, accounts[0]],
+    // });
+    // console.log({ signature });
+    // var add = evm + "$" + sol + "$" + trx + "$" + bnb + "$" + xrp;
+    // var erc20 = "0x2f6C225aF5026d36362ef092d9FD44D4cF08dbb0";
+    // var tx = ucpism.methods.createid(id, "ucpi", add, "main", signature, price);
+    // const gas = await tx.estimateGas({ from: erc20 });
+    // const signT = await web3.eth.accounts.signTransaction(
+    //   {
+    //     to: SC_ADDRESS,
+    //     data: tx.encodeABI(),
+    //     gas,
+    //   },
+    //   wallet.privateKey
+    // );
+    // const rec = await web3.eth
+    //   .sendSignedTransaction(signT.rawTransaction)
+    //   .then((data) => {
+    //     console.log(data);
+    //     // alert(id + "@ucpi is successfully created");
+    //     navigation("/greeting");
+    //   });
+    // setLoading(false);
+    // return signature;
+  }
   return (
     <div>
       <div className="top-line"></div>
@@ -200,6 +203,8 @@ function Home() {
                     localStorage.set("trx", trx);
                     localStorage.set("bnb", bnb);
                     localStorage.set("xrp", xrp);
+                    localStorage.set("eth",evm);
+                    console.log(evm);
                     setLoading(true);
                     // get(id);
                     get(id).then((e) => {

@@ -5,13 +5,27 @@ import "./Greeting.css";
 
 const Greeting = () => {
   const [id, sid] = useState(localStorage.get("id"));
-  // useEffect(() => {
-  //   setId("sid");
-  // }, [id]);
   const [sol, ssol] = useState(localStorage.get("sol"));
   const [trx, strx] = useState(localStorage.get("trx"));
   const [bnb, sbnb] = useState(localStorage.get("bnb"));
   const [xrp, sxrp] = useState(localStorage.get("xrp"));
+  const [eth,seth]=useState(localStorage.get("eth"));
+  const [c,sc]=useState(false);
+  useEffect(()=>{
+    alert(eth);
+  if(sol==""){
+    ssol("undefine");
+  }
+  if(trx==""){
+    strx("undefine");
+  }
+  if(bnb==""){
+    sbnb("undefine");
+  }
+  if(xrp==""){
+    sxrp("undefine");
+  }
+  })
   return (
     <div className="root-container">
       <div className="card">
@@ -24,10 +38,13 @@ const Greeting = () => {
           <div className="greet-body">
             <p>It is attatched to,</p>
             <ul>
-              <li>{sol} for Solana</li>
-              <li>{trx} for Tron</li>
-              <li>{bnb} for BNB</li>
-              <li>{xrp} for XRP</li>
+            <li>{eth} for evm chains</li>
+              {sol!="undefine"?<li>{sol} for Solana</li>:<div></div>}
+              {trx!="undefine"?<li>{trx} for Tron</li>:<div></div>}
+              {bnb!="undefine"?<li>{bnb} for bnb</li>:<div></div>}
+              {xrp!="undefine"?<li>{xrp} for XRP</li>:<div></div>}
+{/*         
+              {<li>{xrp} for XRP</li>} */}
             </ul>
           </div>
         </div>
