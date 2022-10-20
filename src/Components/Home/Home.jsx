@@ -77,11 +77,11 @@ function Home() {
     return signature;
   }
   const [id, sid] = useState("");
-  const [evm, sevm] = useState("nil");
-  const [sol, ssol] = useState("nil");
-  const [trx, strx] = useState("nil");
-  const [bnb, sbnb] = useState("nil");
-  const [xrp, sxrp] = useState("nil");
+  const [evm, sevm] = useState("");
+  const [sol, ssol] = useState("");
+  const [trx, strx] = useState("");
+  const [bnb, sbnb] = useState("");
+  const [xrp, sxrp] = useState("");
   const [price, sprice] = useState(0);
 
   let [loading, setLoading] = useState(false);
@@ -131,6 +131,7 @@ function Home() {
                 }}
                 id="email"
                 type="text"
+                value={sol}
                 name="Email"
               />
               <input
@@ -142,6 +143,7 @@ function Home() {
                   console.log(id);
                 }}
                 type="text"
+                value={trx}
                 name="Email"
               />
               <input
@@ -153,6 +155,7 @@ function Home() {
                   console.log(id);
                 }}
                 type="text"
+                value={bnb}
                 name="Email"
               />
               <input
@@ -164,6 +167,7 @@ function Home() {
                   console.log(id);
                 }}
                 type="text"
+                value={xrp}
                 name="Email"
               />
               <input
@@ -192,7 +196,10 @@ function Home() {
                     }
                   } else {
                     localStorage.set("id", id);
-                    // Add all the fields
+                    localStorage.set("sol", sol);
+                    localStorage.set("trx", trx);
+                    localStorage.set("bnb", bnb);
+                    localStorage.set("xrp", xrp);
                     setLoading(true);
                     // get(id);
                     get(id).then((e) => {
