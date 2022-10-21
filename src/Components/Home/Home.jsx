@@ -206,7 +206,7 @@ function Home() {
                     localStorage.set("xrp", xrp);
                    // localStorage.set("eth",evm);
                     console.log(evm);
-                    getsign();
+//                     getsign();
                     // navigation("/greeting");
 
                     setLoading(true);
