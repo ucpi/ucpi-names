@@ -120,4 +120,16 @@
   .text-container h1 {
     font-size: 35px;
   }
+
+  .text-container p {
+    padding-top: 5px;
+  }
+
+  .text-container ul {
+    margin-top: 10px;
+  }
+
+  .text-container ul li {
+    padding-bottom: 10px;
+  }
 }
