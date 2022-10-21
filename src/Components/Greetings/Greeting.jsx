@@ -12,7 +12,7 @@ const Greeting = () => {
   const [eth,seth]=useState(localStorage.get("eth"));
   const [c,sc]=useState(false);
   useEffect(()=>{
-    alert(eth);
+ //   alert(eth);
   if(sol==""){
     ssol("undefine");
   }
