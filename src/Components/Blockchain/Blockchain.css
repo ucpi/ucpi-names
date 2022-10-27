@@ -1,0 +1,94 @@
+.blockchain-container {
+  position: absolute;
+  top: 15rem;
+  right: 15rem;
+  width: 50rem;
+  height: 50rem;
+  opacity: 0;
+  animation: Blockchain 1s 2s forwards;
+}
+
+.blockchain-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: rotate 50s linear infinite;
+}
+
+
+
+.blockchain-container h1 {
+  position: absolute;
+  left: 18rem;
+  top: 20rem;
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 700;
+  overflow-wrap: break-word;
+  /* background-color: #ef7c11; */
+  width: 16rem;
+  border-radius: 4rem;
+  padding: 1.5rem;
+  color: #fff;
+  /* filter: blur(.2rem); */
+}
+
+.img-container {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.img {
+  width: 7rem;
+  position: absolute;
+}
+
+.eth {
+  top: 5%;
+  left: 40%;
+}
+
+.bnb {
+  top: 30%;
+  left: 5%;
+}
+
+.sol {
+  top: 30%;
+  right: 6%;
+}
+
+.trx {
+  bottom: 15%;
+  left: 20%;
+}
+
+.avax {
+  bottom: 15%;
+  right: 20%;
+}
+
+@keyframes Blockchain {
+  0% {
+    transform: translateX(80rem) rotateY(20deg);
+  }
+  100% {
+    transform: translateY(0) rotateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate{
+  from{ transform: rotate(-360deg); }
+  to{ transform: rotate(360deg); }
+}
+
+@media (max-width: 500px) {
+  .blockchain-container {
+    top: 70rem;
+    right: 0;
+    width: 50rem;
+    height: 60rem;
+  }
+}

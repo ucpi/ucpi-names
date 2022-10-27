@@ -1,0 +1,126 @@
+.form-box {
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 50%,
+    rgba(0, 0, 0, 0.8) 50%
+  );
+  padding: 5rem 0;
+  border-radius: 1rem;
+  box-shadow: 0rem 0rem 1rem rgba(255, 132, 0, 0.436);
+  transition: all 0.5s;
+}
+
+.form-box:hover {
+  transform: translateY(-2rem);
+  box-shadow: 0 0rem 9rem rgba(255, 132, 0, 0.436);
+}
+
+.form-box h1 {
+  font-size: 4.5rem;
+  font-weight: 500;
+  color: #ff7200;
+  text-align: center;
+}
+
+.form-box p {
+  font-size: 2rem;
+  color: #fff;
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.input-group {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.field {
+  width: 45rem;
+  background-color: transparent;
+  border: none;
+  border-bottom: 0.1rem dashed #a2a2a2;
+  margin: 1.5rem 0;
+  padding: 1rem 1rem 1rem 0;
+  font-family: "Muli", serif;
+  font-size: 1.6rem;
+  color: #fff;
+  outline: none;
+}
+
+.input-group input {
+  height: 4rem;
+}
+
+.asterisk_input::after {
+  content: " *";
+  color: #e32;
+  position: absolute;
+  margin: -1rem 0 0rem 0.5rem;
+  font-size: x-large;
+  padding: 0 1rem 0 0;
+}
+
+.field:focus {
+  border-bottom-style: solid;
+}
+
+.input-group label {
+  position: absolute;
+  left: 0;
+  font-family: "Baloo Da 2", serif;
+  font-size: 1.8rem;
+  color: #a2a2a2;
+  text-transform: uppercase;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+
+.input-label {
+  bottom: 2rem;
+}
+
+.field:focus ~ label {
+  transform: translateY(-3rem);
+  font-size: 1.2rem;
+}
+
+.submit-btn {
+  width: 45rem;
+  height: 5rem;
+  background-color: #ef7c11;
+  color: #fff;
+  border: none;
+  margin-top: 3rem;
+  font-family: "Muli", serif;
+  font-size: 2rem;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  cursor: pointer;
+  text-shadow: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.5);
+  transition: background-color 1s;
+}
+
+.submit-btn:hover {
+  background-color: #ff7200;
+}
+
+@media (max-width: 500px) {
+  .form-box {
+    width: 37rem;
+    padding: 5rem 1rem;
+    margin-bottom: 5rem;
+  }
+
+  .submit-btn {
+    width: 30rem;
+  }
+
+  .field {
+    width: 100%;
+  }
+}

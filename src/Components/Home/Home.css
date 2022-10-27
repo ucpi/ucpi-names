@@ -1,114 +1,57 @@
-.top-line {
-  width: 100%;
-  height: 10px;
-  background-color: #ffff00;
+.banner {
+  position: absolute;
+  top: 25rem;
+  left: 15rem;
+  width: 50%;
+  opacity: 0;
+  animation: moveBanner 1s 1.5s forwards;
 }
 
-.App {
-  display: flex;
-  height: 100vh;
+.banner h1 {
+  font-family: "Baloo Da 2", serif;
+  font-size: 8rem;
+  font-weight: 300;
+  color: #fff;
+  line-height: 8rem;
+  letter-spacing: 0.2rem;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
 }
 
-.left-container {
-  width: 60%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  position: relative;
-  filter: brightness(40%);
+.banner span {
+  color: #ff7200;
 }
 
-.right-container {
-  width: 40%;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.form-box {
-  width: 400px;
-}
-
-.form-box h1 {
-  font-size: 40px;
+.banner p {
+  font-size: 3rem;
+  width: 40rem;
+  color: #fff;
   font-weight: 500;
+  padding-top: 1rem;
 }
 
-.form-box p {
-  font-weight: 500;
-}
-
-.form-control {
-  width: 100%;
-  font-size: 15px;
-  color: #3f4254;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid #7e8299;
-  padding: 35px 0 15px 0;
-}
-
-.form-control:active {
-  border: none;
-  outline: none;
-  place-content: none;
-}
-
-.form-control:focus::placeholder {
-  color: transparent;
-}
-
-.form-btn {
-  width: 100%;
-  border: none;
-  outline: none;
-  background-color: #282c34;
-  color: #ffffff;
-  font-size: 15px;
-  padding: 15px;
-  margin: 25px 0;
-  cursor: pointer;
-}
-
-/* Responsive */
-
-@media (max-width: 1075px) {
-  .form-box {
-    margin: 2rem;
+@keyframes moveBanner {
+  0% {
+    transform: translateY(40rem) rotateY(-20deg);
   }
-
-  .form-control {
-    padding-top: 1.5rem;
+  100% {
+    transform: translateY(0) rotateY(0);
+    opacity: 1;
   }
 }
 
-@media (max-width: 870px) {
-  body {
-    overflow: auto;
-    text-align: center;
+@media (max-width: 500px) {
+  .banner {
+    top: 19rem;
+    left: 2rem;
+    width: 90%;
   }
 
-  .App {
-    height: inherit;
-    flex-direction: column;
-  }
-
-  .left-container {
-    height: 80vh;
-    width: 100%;
-  }
-
-  .right-container {
-    width: 100%;
-  }
-
-  .form-box {
-    max-width: 500px;
-    margin-bottom: 50px;
-  }
-
-  .form-box p {
-    padding-bottom: 10px;
+  .banner h1 {
+    font-size: 7rem;
+    font-weight: 300;
+    color: #fff;
+    line-height: 8rem;
+    letter-spacing: 0.2rem;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
   }
 }
