@@ -4,13 +4,12 @@ import "./Footer.css";
 const Footer = () => {
   return (
     <div className="footer">
-      <p>Connect with Us:</p>
-      <div className="btn-container">
-        <a href="">
-          Twitter <i class="fa-brands fa-twitter icon"></i>
+      <div className="links-wrapper">
+        <a href="https://twitter.com/UCPI_tech" target="_blank">
+          <i class="fa-brands fa-twitter icon"></i>
         </a>
-        <a href="">
-          Discord <i class="fa-brands fa-discord icon"></i>
+        <a href="https://discord.gg/v6ruvP3v7w" target="_blank">
+          <i class="fa-brands fa-discord icon"></i>
         </a>
       </div>
     </div>
